@@ -41,9 +41,10 @@ http://sharathpan.wordpress.com/2012/05/17/interview-street-equations-solution/
 
 Anyway , this is much more simple to read and understand . '''
 
-from math import *
+
 def isprime(n):
     for i in xrange(2,(n/2)+1):
+        if i*i > n+1 : break
         if (n % i == 0):
             return False         
     return True
@@ -61,15 +62,17 @@ def mul(i,n):
         m += n/i
         n /= i
     return (2*m) + 1
-n = int(raw_input())
 
-m=primes(n)
-#print m 
-c=1;mu = []
-for i in m:
-    mu.append(mul(i,n))
+if __name__ == "__main__":
 
-for i in mu:
-    c *= i
+    n = int(raw_input())
+
+    m=primes(n)
+    c=1;mu = []
+    for i in m:
+        mu.append(mul(i,n))
+
+    for i in mu:
+        c *= i
     
-print  c % 1000007
+    print  c % 1000007
